@@ -1,9 +1,13 @@
 ﻿import xbmc,xbmcaddon,xbmcgui,json,random
 
 def getAllMovies():
-  # TODO: determine all/unwatched/watched from settings...
-  # rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'filter': { 'field': 'playcount', 'operator': 'lessthan', 'value': '1' }, 'properties': [ 'file' ] }, 'id': 'libMovies'}
   rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'properties': [ 'file' ] }, 'id': 'libMovies'}
+
+  if (addon.getSetting('randomType') == '1'):
+    rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'filter': { 'field': 'playcount', 'operator': 'greaterthan', 'value': '0' }, 'properties': [ 'file' ] }, 'id': 'libMovies'}
+  if (addon.getSetting('randomType') == '2'):
+    rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'filter': { 'field': 'playcount', 'operator': 'lessthan', 'value': '1' }, 'properties': [ 'file' ] }, 'id': 'libMovies'}
+
   rpccmd = json.dumps(rpccmd)
   result = xbmc.executeJSONRPC(rpccmd)
   result = json.loads(result)
