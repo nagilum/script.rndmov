@@ -1,11 +1,11 @@
 ﻿import xbmc,xbmcaddon,xbmcgui,json,random
 
-def getAllMovies():
+def getAllMovies(randomType):
   rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'properties': [ 'file' ] }, 'id': 'libMovies'}
 
-  if (addon.getSetting('randomType') == '1'):
+  if (randomType == '1'):
     rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'filter': { 'field': 'playcount', 'operator': 'greaterthan', 'value': '0' }, 'properties': [ 'file' ] }, 'id': 'libMovies'}
-  if (addon.getSetting('randomType') == '2'):
+  if (randomType == '2'):
     rpccmd = {'jsonrpc': '2.0', 'method': 'VideoLibrary.GetMovies', 'params': { 'filter': { 'field': 'playcount', 'operator': 'lessthan', 'value': '1' }, 'properties': [ 'file' ] }, 'id': 'libMovies'}
 
   rpccmd = json.dumps(rpccmd)
@@ -17,7 +17,13 @@ addon     = xbmcaddon.Addon()
 addonName = addon.getAddonInfo('name')
 addonIcon = addon.getAddonInfo('icon')
 
-movies = getAllMovies()
+randomType         = addon.getSetting('randomType')
+askForTypeOnLaunch = addon.getSetting('askForTypeOnLaunch')
+
+if (askForTypeOnLaunch == 'true'):
+  # TODO: Open dialog with multiselect and overwrite randomType
+
+movies = getAllMovies(randomType)
 movie  = random.choice(movies['result']['movies'])
 time   = 5000
 
