@@ -3,7 +3,7 @@
   <!-- GENERAL -->
   <string id="1001">General</string>
 
-  <string id="10011">What list of movies to randomize</string>
+  <string id="10011">From which list of movies do you wish to randomize?</string>
   <string id="10002">Ask each time the addon in launched</string>
 
   <string id="1001001">All</string>

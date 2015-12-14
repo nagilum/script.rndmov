@@ -21,11 +21,14 @@ randomType         = addon.getSetting('randomType')
 askForTypeOnLaunch = addon.getSetting('askForTypeOnLaunch')
 
 if (askForTypeOnLaunch == 'true'):
-  # TODO: Open dialog with multiselect and overwrite randomType
+  randomType = xbmcgui.Dialog().select('From which list of movies do you wish to randomize?', ['All', 'Watched', 'Unwatched', 'Cancel'])
 
-movies = getAllMovies(randomType)
-movie  = random.choice(movies['result']['movies'])
-time   = 5000
+if (randomType == '3') or (randomType == 3):
+  quit()
+else:
+  movies = getAllMovies(randomType)
+  movie  = random.choice(movies['result']['movies'])
+  time   = 10000
 
-xbmc.executebuiltin('PlayMedia(%s)'%(movie['file']))
-xbmc.executebuiltin('Notification(%s, %s %s, %d, %s)'%(addonName,"Playing ",movie['label'],time,addonIcon))
+  xbmc.executebuiltin('PlayMedia(%s)'%(movie['file']))
+  xbmc.executebuiltin('Notification(%s, %s %s, %d, %s)'%(addonName,"Playing ",movie['label'],time,addonIcon))
