@@ -1,4 +1,4 @@
-# Random Movie
+# Random Movie Addon for Kodi
 
 A Kodi script add-on to play a random movie from your movies library.
 
