@@ -21,7 +21,7 @@ randomType         = addon.getSetting('randomType')
 askForTypeOnLaunch = addon.getSetting('askForTypeOnLaunch')
 
 if (askForTypeOnLaunch == 'true'):
-  randomType = xbmcgui.Dialog().select(xbmc.getLocalizedString(10011), [xbmc.getLocalizedString(1001001), xbmc.getLocalizedString(1001002), xbmc.getLocalizedString(1001003), xbmc.getLocalizedString(1001004)])
+  randomType = xbmcgui.Dialog().select(addon.getLocalizedString(10011), [addon.getLocalizedString(1001001), addon.getLocalizedString(1001002), addon.getLocalizedString(1001003), addon.getLocalizedString(1001004)])
 
 if (randomType == '3') or (randomType == 3):
   quit()
