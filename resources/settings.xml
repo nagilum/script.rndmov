@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-  <!-- GENERAL -->
-  <category label="1001">
-    <setting label="10011" type="enum" id="randomType" lvalues="1001001|1001002|1001003" />
-    <setting label="10002" type="bool" id="askForTypeOnLaunch" default="false" />
-  </category>
-</settings>
