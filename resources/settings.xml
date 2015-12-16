@@ -2,7 +2,7 @@
 <settings>
   <!-- GENERAL -->
   <category label="32001">
-    <setting label="32002" type="enum" id="randomType" lvalues="1001001|1001002|1001003" />
+    <setting label="32002" type="enum" id="randomType" lvalues="32004|32005|32006" />
     <setting label="32003" type="bool" id="askForTypeOnLaunch" default="false" />
   </category>
 </settings>
