@@ -13,7 +13,7 @@
 		<description lang="en">Play a random movie from your Kodi library. Choose from all, watched, or unwatched.</description>
     <description lang="no">Spill en tilfeldig film fra film bibliteket i Kodi. Velg fra alle, sette, eller usette.</description>
 		<license>MIT License</license>
-		<language>EN</language>
+		<language></language>
 		<source>https://github.com/nagilum/script.rndmov</source>
 		<email>pdnagilum@gmail.com</email>
 	</extension>
