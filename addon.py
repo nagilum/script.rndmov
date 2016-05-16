@@ -19,6 +19,7 @@ addonIcon = addon.getAddonInfo('icon')
 
 randomType         = addon.getSetting('randomType')
 askForTypeOnLaunch = addon.getSetting('askForTypeOnLaunch')
+showMovieTitle = addon.getSetting('showMovieTitle')
 
 if (askForTypeOnLaunch == 'true'):
   randomType = xbmcgui.Dialog().select(addon.getLocalizedString(32002), [addon.getLocalizedString(32004), addon.getLocalizedString(32005), addon.getLocalizedString(32006), addon.getLocalizedString(32007)])
@@ -31,4 +32,10 @@ else:
   time   = 10000
 
   xbmc.executebuiltin('PlayMedia(%s)'%(movie['file']))
-  xbmc.executebuiltin('Notification(%s, %s %s, %d, %s)'%(addonName,"Playing ",movie['label'],time,addonIcon))
+
+  if (showMovieTitle == 'true'):
+    title = movie['label']
+  else:
+    title = '????????';
+
+  xbmc.executebuiltin('Notification(%s, %s %s, %d, %s)'%(addonName,"Playing ",title,time,addonIcon))
